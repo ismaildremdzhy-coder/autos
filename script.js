@@ -856,10 +856,9 @@ function createRelatedCars(currentCarId) {
 
 function getRelatedCount() {
   const width = window.innerWidth;
-  const height = window.innerHeight;
 
-  // 🔥 твой нужный диапазон
-  if (width >= 776 && width <= 1099 && height <= 650) {
+  // 📱 телефон с включенной "компьютерной версией"
+  if (width >= 760 && width <= 1100) {
     return 4;
   }
 
