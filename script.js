@@ -846,13 +846,27 @@ function createRelatedCars(currentCarId) {
       };
     })
     .sort((a, b) => {
-      if (b.score !== a.score) {
-        return b.score - a.score;
-      }
+  if (b.score !== a.score) {
+    return b.score - a.score;
+  }
 
-      return a.random - b.random;
-    })
-    .slice(0, 3);
+  return a.random - b.random;
+})
+.slice(0, getRelatedCount());
+
+function getRelatedCount() {
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+
+  // 🔥 твой нужный диапазон
+  if (width >= 776 && width <= 1099 && height <= 650) {
+    return 4;
+  }
+
+  return 3;
+}
+
+    
 
   return relatedCars.map(createCarCard).join("");
 }
