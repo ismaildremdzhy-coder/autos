@@ -4245,3 +4245,658 @@ body:not(.light-theme) .card-link.disabled {
     color: #fff;
     transform: translateY(-1px);
 }
+
+/* =========================================================
+   RESPONSIVE POLISH FINAL — 2026-04-26
+   Единая адаптация: mobile / tablet / desktop
+   Добавлено в конец файла, чтобы аккуратно перекрыть старые конфликты
+========================================================= */
+
+:root {
+    --page-x-mobile: 8px;
+    --page-x-tablet: 20px;
+    --page-x-desktop: 40px;
+    --header-h-mobile: 58px;
+    --header-h-tablet: 66px;
+    --header-h-desktop: 70px;
+    --header-top-mobile: 8px;
+    --header-top-tablet: 14px;
+    --header-top-desktop: 18px;
+    --header-bottom-mobile: 16px;
+    --header-bottom-tablet: 22px;
+    --header-bottom-desktop: 24px;
+}
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+.site-shell {
+    width: min(var(--container), calc(100% - 32px));
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header {
+    min-height: var(--header-h-desktop);
+    width: min(var(--container), calc(100% - 80px)) !important;
+    top: var(--header-top-desktop) !important;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    flex-wrap: nowrap;
+}
+
+.header.header-hidden {
+    transform: translate(-50%, -140%);
+}
+
+.header-left,
+.header-right {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.header-left {
+    justify-content: flex-start;
+    flex: 1 1 0;
+}
+
+.header-right {
+    justify-content: flex-end;
+    flex: 1 1 0;
+}
+
+.logo {
+    left: 50% !important;
+    max-width: 210px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.site-shell {
+    padding-top: calc(var(--header-top-desktop) + var(--header-h-desktop) + var(--header-bottom-desktop)) !important;
+}
+
+.main,
+.car-detail {
+    margin-top: 0 !important;
+}
+
+/* Главная: ровный hero и каталог */
+.hero {
+    min-height: clamp(340px, 34vw, 430px) !important;
+}
+
+.hero-content {
+    min-height: unset !important;
+    height: 100%;
+    padding: clamp(28px, 3vw, 42px) !important;
+}
+
+.hero h1 {
+    margin-top: clamp(44px, 6vw, 76px) !important;
+    max-width: 560px;
+}
+
+.hero-text {
+    max-width: 520px;
+}
+
+.hero-actions {
+    margin: clamp(120px, 15vw, 190px) 0 0 !important;
+    padding: 0 !important;
+}
+
+.filters,
+.catalog,
+.site-footer {
+    width: 100%;
+}
+
+.cars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(14px, 1.4vw, 20px);
+}
+
+.car-card {
+    min-width: 0;
+}
+
+.car-image-wrap {
+    aspect-ratio: 16 / 10;
+}
+
+.car-head h3,
+.car-meta,
+.car-tags span,
+.car-price {
+    overflow-wrap: anywhere;
+}
+
+/* Страница автомобиля */
+.car-detail {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(360px, 0.65fr) !important;
+    gap: 18px !important;
+    align-items: stretch;
+}
+
+.car-gallery,
+.car-info {
+    min-width: 0;
+}
+
+.gallery-main {
+    height: auto !important;
+}
+
+.main-photo {
+    width: 100%;
+    height: clamp(380px, 38vw, 500px) !important;
+}
+
+.thumbs {
+    width: 100%;
+    max-width: 100%;
+}
+
+.detail-title-row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 14px;
+    align-items: start;
+}
+
+.detail-title-row h1 {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.detail-status {
+    white-space: nowrap;
+}
+
+.detail-bottom {
+    min-width: 0;
+}
+
+.detail-price-row {
+    min-width: 0;
+}
+
+.detail-price {
+    min-width: 0;
+    overflow-wrap: normal;
+}
+
+.related-grid {
+    grid-template-columns: repeat(3, minmax(0, 340px)) !important;
+}
+
+/* Планшеты */
+@media (min-width: 769px) and (max-width: 1099px) {
+    :root {
+        --container: 100%;
+    }
+
+    .header {
+        width: calc(100% - 40px) !important;
+        top: var(--header-top-tablet) !important;
+        min-height: var(--header-h-tablet);
+        padding: 12px 16px;
+    }
+
+    .site-shell {
+        width: calc(100% - 40px) !important;
+        padding-top: calc(var(--header-top-tablet) + var(--header-h-tablet) + var(--header-bottom-tablet)) !important;
+    }
+
+    .logo {
+        position: absolute !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        font-size: 1.45rem !important;
+        max-width: 180px;
+    }
+
+    .hero {
+        min-height: 360px !important;
+    }
+
+    .hero-content {
+        padding: 32px 28px !important;
+    }
+
+    .hero h1 {
+        margin-top: 46px !important;
+        font-size: clamp(2rem, 4vw, 2.7rem) !important;
+    }
+
+    .hero-actions {
+        margin-top: 110px !important;
+    }
+
+    .section-top {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 240px;
+        align-items: end;
+    }
+
+    .cars-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 16px;
+    }
+
+    .car-detail {
+        grid-template-columns: 1fr !important;
+        gap: 18px !important;
+    }
+
+    .main-photo {
+        height: clamp(360px, 52vw, 480px) !important;
+    }
+
+    .detail-title-row {
+        grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .detail-tags {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .detail-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .car-detail + .catalog .cars-grid {
+        grid-template-columns: 1fr 1fr !important;
+    }
+
+    .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 340px)) !important;
+    }
+}
+
+/* Мобильные */
+@media (max-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+
+    .header {
+        width: calc(100% - 16px) !important;
+        top: var(--header-top-mobile) !important;
+        min-height: var(--header-h-mobile);
+        padding: 8px 10px !important;
+        gap: 8px;
+        border-radius: 16px;
+        flex-wrap: nowrap !important;
+    }
+
+    .site-shell {
+        width: calc(100% - 16px) !important;
+        margin: 8px auto 20px !important;
+        padding-top: calc(var(--header-top-mobile) + var(--header-h-mobile) + var(--header-bottom-mobile)) !important;
+    }
+
+    .header-left,
+    .header-right {
+        flex: 1 1 0;
+        gap: 6px;
+    }
+
+    .logo {
+        position: absolute !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        font-size: clamp(0.95rem, 4.6vw, 1.18rem) !important;
+        max-width: 92px;
+        margin: 0 !important;
+        text-align: center;
+    }
+
+    .icon-btn,
+    .header-right .burger,
+    .header-left .burger,
+    .back-btn,
+    .lang-btn {
+        height: 40px !important;
+        border-radius: 13px !important;
+        flex-shrink: 0;
+    }
+
+    .icon-btn,
+    .header-right .burger,
+    .header-left .burger,
+    .back-btn {
+        width: 40px !important;
+    }
+
+    .lang-btn {
+        min-width: 54px !important;
+        padding: 0 9px !important;
+        font-size: 0.82rem;
+    }
+
+    .theme-toggle {
+        width: 44px !important;
+        height: 28px !important;
+        flex-shrink: 0;
+    }
+
+    .theme-toggle-track {
+        width: 44px !important;
+        height: 28px !important;
+    }
+
+    body.light-theme .theme-toggle-thumb {
+        transform: translateX(16px) !important;
+    }
+
+    .hero {
+        min-height: 390px !important;
+        border-radius: 22px !important;
+        background-position: center right 32% !important;
+    }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        min-height: 390px !important;
+        padding: 28px 18px 20px !important;
+    }
+
+    .hero-label {
+        font-size: 0.82rem !important;
+    }
+
+    .hero h1 {
+        margin-top: 82px !important;
+        margin-bottom: 12px !important;
+        font-size: clamp(1.58rem, 7vw, 2.05rem) !important;
+        max-width: 100%;
+    }
+
+    .hero-text {
+        font-size: 0.9rem !important;
+        line-height: 1.45 !important;
+        max-width: 100%;
+    }
+
+    .hero-actions {
+        margin-top: auto !important;
+        display: grid !important;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .btn {
+        min-height: 46px !important;
+        border-radius: 14px !important;
+    }
+
+    .filters {
+        margin-top: 12px !important;
+        border-radius: 16px !important;
+    }
+
+    .filters-scroll {
+        gap: 8px;
+        scroll-snap-type: x proximity;
+    }
+
+    .filter-chip {
+        min-height: 40px !important;
+        padding: 0 13px !important;
+        font-size: 0.86rem !important;
+        scroll-snap-align: start;
+    }
+
+    .catalog {
+        margin-top: 20px !important;
+    }
+
+    .section-top {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 14px !important;
+        margin-bottom: 16px !important;
+    }
+
+    .section-top h2 {
+        font-size: clamp(1.45rem, 6.5vw, 2rem) !important;
+    }
+
+    .sort-box {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .cars-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+    }
+
+    .car-image-wrap {
+        aspect-ratio: 16 / 10;
+    }
+
+    .car-footer {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    .card-link {
+        width: 100%;
+    }
+
+    .car-detail {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+    }
+
+    .car-gallery,
+    .car-info {
+        padding: 14px !important;
+        border-radius: 20px !important;
+    }
+
+    .main-photo {
+        height: clamp(230px, 64vw, 320px) !important;
+        border-radius: 16px !important;
+    }
+
+    .gallery-arrow {
+        opacity: 1 !important;
+        font-size: 34px !important;
+    }
+
+    .thumbs {
+        gap: 8px !important;
+        margin-top: 10px !important;
+    }
+
+    .thumbs img {
+        width: 74px !important;
+        height: 58px !important;
+        border-radius: 12px !important;
+    }
+
+    .detail-title-row {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        margin-bottom: 14px !important;
+    }
+
+    .detail-title-row h1 {
+        font-size: clamp(1.65rem, 8vw, 2.15rem) !important;
+    }
+
+    .detail-meta {
+        font-size: 0.92rem !important;
+        line-height: 1.5 !important;
+    }
+
+    .detail-tags {
+        display: flex !important;
+        flex-flow: row wrap !important;
+        gap: 8px !important;
+        margin-top: 18px !important;
+        margin-bottom: 18px !important;
+    }
+
+    .detail-tags span {
+        font-size: 0.78rem !important;
+        padding: 8px 10px !important;
+    }
+
+    .detail-price-row {
+        gap: 12px !important;
+    }
+
+    .detail-price {
+        font-size: clamp(2rem, 10vw, 2.45rem) !important;
+    }
+
+    .detail-share-btn {
+        width: 48px !important;
+        height: 48px !important;
+        border-radius: 14px !important;
+    }
+
+    .btn-detail-dark,
+    .btn-detail-light {
+        min-height: 48px !important;
+        border-radius: 14px !important;
+        font-size: 0.94rem !important;
+    }
+
+    .car-detail + .catalog {
+        margin-top: 22px !important;
+    }
+
+    .car-detail + .catalog .cars-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .car-detail + .catalog .car-tags {
+        grid-template-columns: 1fr !important;
+    }
+
+    .contact-box,
+    .related-cars,
+    .site-footer {
+        margin-top: 34px !important;
+    }
+
+    .contact-box {
+        padding: 24px 16px !important;
+        border-radius: 20px !important;
+    }
+
+    .related-grid {
+        grid-template-columns: 1fr !important;
+        justify-items: stretch !important;
+    }
+
+    .related-grid .car-card {
+        max-width: none !important;
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr !important;
+        gap: 18px !important;
+    }
+
+    .menu-panel {
+        width: calc(100% - 16px) !important;
+        min-height: calc(100vh - 16px) !important;
+        margin: 8px auto !important;
+        border-radius: 22px !important;
+    }
+
+    .modal-box {
+        width: 100% !important;
+        border-radius: 20px !important;
+    }
+
+    .admin-section {
+        margin-top: 0 !important;
+        padding: 18px 14px !important;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Очень узкие телефоны */
+@media (max-width: 380px) {
+    .logo {
+        max-width: 76px;
+        font-size: 0.92rem !important;
+    }
+
+    .lang-btn {
+        min-width: 48px !important;
+        padding: 0 7px !important;
+    }
+
+    .theme-toggle {
+        width: 40px !important;
+    }
+
+    .hero {
+        min-height: 370px !important;
+    }
+
+    .hero-content {
+        min-height: 370px !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    .hero h1 {
+        margin-top: 72px !important;
+        font-size: 1.48rem !important;
+    }
+
+    .hero-text {
+        font-size: 0.86rem !important;
+    }
+
+    .detail-price {
+        font-size: 1.9rem !important;
+    }
+}
+
+/* Большие экраны */
+@media (min-width: 1400px) {
+    :root {
+        --container: 1180px;
+    }
+
+    .hero {
+        min-height: 430px !important;
+    }
+
+    .main-photo {
+        height: 500px !important;
+    }
+}
