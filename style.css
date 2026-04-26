@@ -5740,54 +5740,112 @@ img {
   }
 }
 
-
-
-/* ===== FIX: ИДЕАЛЬНОЕ ВЫРАВНИВАНИЕ ШАПКИ (MOBILE) ===== */
+/* =========================================================
+   FINAL MOBILE SPACING FIX — 2026-04-26
+   Исправляет расстояние шапки сверху/снизу и убирает лишний провал hero.
+========================================================= */
 
 @media (max-width: 768px) {
+  :root {
+    --mobile-page-x: 14px;
+    --mobile-header-top: 10px;
+    --mobile-header-height: 58px;
+    --mobile-header-bottom: 14px;
+  }
 
-    :root {
-        --header-top-gap-mobile: 10px;
-        --header-bottom-gap-mobile: 10px;
-        --header-height-mobile: 58px;
-    }
+  .header {
+    top: var(--mobile-header-top) !important;
+    width: calc(100% - (var(--mobile-page-x) * 2)) !important;
+    min-height: var(--mobile-header-height) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
 
-    .header {
-        top: var(--header-top-gap-mobile) !important;
-    }
+  .header.header-hidden {
+    transform: translate(-50%, -140%) !important;
+  }
 
-    .site-shell {
-        padding-top: calc(
-            var(--header-top-gap-mobile)
-            + var(--header-height-mobile)
-            + var(--header-bottom-gap-mobile)
-        ) !important;
+  .site-shell {
+    width: calc(100% - (var(--mobile-page-x) * 2)) !important;
+    margin-top: 0 !important;
+    padding-top: calc(
+      var(--mobile-header-top)
+      + var(--mobile-header-height)
+      + var(--mobile-header-bottom)
+    ) !important;
+  }
 
-        margin-top: 0 !important;
-    }
+  .main,
+  .car-detail {
+    margin-top: 0 !important;
+  }
 
-    .main {
-        margin-top: 0 !important;
-    }
+  .hero {
+    min-height: 390px !important;
+  }
+
+  .hero-content {
+    min-height: 390px !important;
+    padding: 24px 18px 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .hero h1 {
+    margin-top: 38px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .hero-actions {
+    margin-top: auto !important;
+    padding: 0 !important;
+  }
+
+  .filters {
+    margin-top: 12px !important;
+  }
 }
 
-
-
-/* ===== FIX: МАЛЕНЬКИЕ ЭКРАНЫ (380x581) ===== */
-
 @media (max-width: 400px) and (max-height: 650px) {
+  :root {
+    --mobile-page-x: 7px;
+    --mobile-header-top: 7px;
+    --mobile-header-height: 56px;
+    --mobile-header-bottom: 7px;
+  }
 
-    :root {
-        --header-top-gap-mobile: 8px;
-        --header-bottom-gap-mobile: 8px;
-        --header-height-mobile: 56px;
-    }
+  .header {
+    padding: 7px 8px !important;
+  }
 
-    .site-shell {
-        padding-top: calc(
-            var(--header-top-gap-mobile)
-            + var(--header-height-mobile)
-            + var(--header-bottom-gap-mobile)
-        ) !important;
-    }
+  .site-shell {
+    padding-top: calc(
+      var(--mobile-header-top)
+      + var(--mobile-header-height)
+      + var(--mobile-header-bottom)
+    ) !important;
+  }
+
+  .hero {
+    min-height: 350px !important;
+  }
+
+  .hero-content {
+    min-height: 350px !important;
+    padding: 22px 16px 18px !important;
+  }
+
+  .hero h1 {
+    margin-top: 34px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .hero-actions {
+    margin-top: auto !important;
+    padding: 0 !important;
+  }
+
+  .car-detail {
+    gap: 14px !important;
+  }
 }
