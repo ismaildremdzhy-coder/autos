@@ -5937,3 +5937,238 @@ img {
     width: 40px !important;
   }
 }
+
+/* =========================================================
+   FINAL TESLA HEADER — ANDROID CHROME / TELEGRAM FIX
+   2026-04-26
+   Задача:
+   - логотип никогда не наезжает на язык / тему / бургер;
+   - шапка ровная на Android Chrome и Telegram WebView;
+   - одинаковая логика для главной и страницы автомобиля;
+   - без position:absolute для логотипа на mobile.
+========================================================= */
+
+@media (max-width: 768px) {
+  :root {
+    --m-header-x: 8px;
+    --m-header-top: 8px;
+    --m-header-bottom: 12px;
+    --m-header-height: 58px;
+    --m-header-radius: 18px;
+    --m-header-btn: 40px;
+    --m-header-gap: 8px;
+  }
+
+  .header {
+    position: fixed !important;
+    top: var(--m-header-top) !important;
+    left: 50% !important;
+    right: auto !important;
+    width: calc(100% - (var(--m-header-x) * 2)) !important;
+    min-height: var(--m-header-height) !important;
+    padding: 8px 10px !important;
+    box-sizing: border-box !important;
+    display: grid !important;
+    grid-template-columns: var(--m-header-btn) minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    column-gap: var(--m-header-gap) !important;
+    transform: translateX(-50%) !important;
+    border-radius: var(--m-header-radius) !important;
+    overflow: visible !important;
+  }
+
+  .header.header-hidden {
+    transform: translate(-50%, -140%) !important;
+  }
+
+  .site-shell {
+    width: calc(100% - (var(--m-header-x) * 2)) !important;
+    margin: 0 auto 20px !important;
+    padding-top: calc(
+      var(--m-header-top) + var(--m-header-height) + var(--m-header-bottom)
+    ) !important;
+  }
+
+  .main,
+  .car-detail {
+    margin-top: 0 !important;
+  }
+
+  /* Делаем элементы .header-left прямыми элементами grid-шапки */
+  .header-left {
+    display: contents !important;
+  }
+
+  .header-left .icon-btn,
+  .header-left .burger,
+  .header-left .back-btn {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: start !important;
+    align-self: center !important;
+    width: var(--m-header-btn) !important;
+    height: var(--m-header-btn) !important;
+    min-width: var(--m-header-btn) !important;
+    min-height: var(--m-header-btn) !important;
+    border-radius: 14px !important;
+    position: relative !important;
+    z-index: 3 !important;
+    margin: 0 !important;
+  }
+
+  /* Главное: логотип находится в отдельной центральной колонке, а не поверх кнопок */
+  .header .logo,
+  .header-left .back-btn + .logo {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    justify-self: center !important;
+    align-self: center !important;
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    display: block !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    text-align: center !important;
+    font-size: clamp(1rem, 4.4vw, 1.22rem) !important;
+    line-height: 1 !important;
+    letter-spacing: 0.08em !important;
+    z-index: 2 !important;
+    pointer-events: auto !important;
+  }
+
+  .header-right {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    min-width: 0 !important;
+    width: auto !important;
+    flex: initial !important;
+    margin: 0 !important;
+    position: relative !important;
+    z-index: 3 !important;
+  }
+
+  .lang-btn,
+  .theme-toggle,
+  .theme-toggle-track,
+  .header-right .burger {
+    flex-shrink: 0 !important;
+  }
+
+  .lang-btn {
+    min-width: 58px !important;
+    height: var(--m-header-btn) !important;
+    padding: 0 10px !important;
+    border-radius: 14px !important;
+    font-size: 0.86rem !important;
+    gap: 6px !important;
+  }
+
+  .theme-toggle,
+  .theme-toggle-track {
+    width: 48px !important;
+    height: 30px !important;
+  }
+
+  .theme-toggle-thumb {
+    width: 22px !important;
+    height: 22px !important;
+    top: 3px !important;
+    left: 3px !important;
+  }
+
+  body.light-theme .theme-toggle-thumb {
+    transform: translateX(18px) !important;
+  }
+
+  .header-right .burger {
+    width: var(--m-header-btn) !important;
+    height: var(--m-header-btn) !important;
+    min-width: var(--m-header-btn) !important;
+    border-radius: 14px !important;
+  }
+}
+
+/* Узкие телефоны и Android Chrome 360–400px */
+@media (max-width: 420px) {
+  :root {
+    --m-header-x: 8px;
+    --m-header-top: 8px;
+    --m-header-bottom: 10px;
+    --m-header-height: 56px;
+    --m-header-btn: 38px;
+    --m-header-gap: 6px;
+    --m-header-radius: 16px;
+  }
+
+  .header {
+    padding: 7px 8px !important;
+  }
+
+  .header .logo,
+  .header-left .back-btn + .logo {
+    font-size: clamp(0.92rem, 4.1vw, 1.02rem) !important;
+    letter-spacing: 0.065em !important;
+  }
+
+  .header-right {
+    gap: 6px !important;
+  }
+
+  .lang-btn {
+    min-width: 48px !important;
+    height: var(--m-header-btn) !important;
+    padding: 0 7px !important;
+    font-size: 0.78rem !important;
+    gap: 5px !important;
+  }
+
+  .theme-toggle,
+  .theme-toggle-track {
+    width: 42px !important;
+    height: 28px !important;
+  }
+
+  .theme-toggle-thumb {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  body.light-theme .theme-toggle-thumb {
+    transform: translateX(16px) !important;
+  }
+}
+
+/* Твой проблемный размер 380 × 581 */
+@media (max-width: 400px) and (max-height: 650px) {
+  :root {
+    --m-header-top: 8px;
+    --m-header-bottom: 8px;
+    --m-header-height: 56px;
+  }
+
+  .site-shell {
+    padding-top: calc(
+      var(--m-header-top) + var(--m-header-height) + var(--m-header-bottom)
+    ) !important;
+  }
+
+  .header .logo,
+  .header-left .back-btn + .logo {
+    font-size: 0.96rem !important;
+    letter-spacing: 0.055em !important;
+  }
+}
