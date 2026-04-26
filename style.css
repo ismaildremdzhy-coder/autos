@@ -5142,3 +5142,78 @@ img {
         width: 100% !important;
     }
 }
+
+
+/* ===== FOOTER MOBILE FINAL FIX v4 ===== */
+/* На телефоне футер всегда в одну колонку, даже если браузер даёт ширину 701–768px */
+@media (max-width: 768px) {
+    .site-footer {
+        margin-top: 34px !important;
+        padding: 24px 18px 18px !important;
+        border-radius: 22px !important;
+    }
+
+    .footer-top {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 18px !important;
+        align-items: start !important;
+    }
+
+    .footer-brand,
+    .footer-links,
+    .footer-contact,
+    .footer-action {
+        grid-column: 1 / -1 !important;
+        grid-row: auto !important;
+        width: 100% !important;
+        justify-self: stretch !important;
+    }
+
+    .footer-logo {
+        font-size: 1.55rem !important;
+    }
+
+    .footer-brand p {
+        max-width: 100% !important;
+        margin-top: 10px !important;
+        line-height: 1.45 !important;
+    }
+
+    .footer-links,
+    .footer-contact {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    .footer-links a,
+    .footer-contact a {
+        font-size: 0.95rem !important;
+        line-height: 1.35 !important;
+    }
+
+    .footer-action .footer-btn,
+    .footer-btn {
+        width: 100% !important;
+        min-height: 48px !important;
+        border-radius: 14px !important;
+    }
+
+    .footer-bottom {
+        margin-top: 20px !important;
+        padding-top: 14px !important;
+        font-size: 0.86rem !important;
+    }
+}
+
+/* Узкий телефон: ещё компактнее */
+@media (max-width: 420px) {
+    .site-footer {
+        padding: 22px 16px 16px !important;
+    }
+
+    .footer-top {
+        gap: 16px !important;
+    }
+}
