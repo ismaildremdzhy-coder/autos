@@ -5217,3 +5217,32 @@ img {
         gap: 16px !important;
     }
 }
+
+
+
+
+/* ===== MOBILE FIX FOOTER ===== */
+@media (max-width: 768px) {
+
+  .footer-top {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .footer-links,
+  .footer-contact,
+  .footer-action {
+    align-self: flex-start;
+  }
+
+  .footer-links a {
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .footer-action {
+    margin-top: 8px;
+  }
+
+}
