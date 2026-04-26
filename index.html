@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autos Germany</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+
+<body>
+  <div id="top"></div>
+
+
+
+  <div class="site-shell">
+    <header class="header">
+      <div class="header-left">
+        <button class="icon-btn burger" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <a href="#" class="logo">AUTOS</a>
+      </div>
+
+
+      
+      
+
+      <div class="header-right">
+        <div class="lang-dropdown" id="langDropdown">
+  <button class="lang-btn" id="langTrigger" type="button" aria-label="Выбор языка">
+    <span id="langCurrent">DE</span>
+    <span class="lang-arrow"></span>
+  </button>
+
+
+
+  
+
+
+
+
+
+  <div class="lang-menu" id="langMenu">
+    <button type="button" class="lang-option active" data-lang="DE">DE</button>
+    <button type="button" class="lang-option" data-lang="EN">EN</button>
+    <button type="button" class="lang-option" data-lang="TR">TR</button>
+    <button type="button" class="lang-option" data-lang="RU">RU</button>
+  </div>
+</div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему">
+  <span class="theme-toggle-track">
+    <span class="theme-toggle-thumb"></span>
+  </span>
+</button>
+        
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="hero-label" data-i18n="heroLabel">
+  Подержанные автомобили в Германии
+</p>
+          <h1 data-i18n="heroTitle">Продажа проверенных авто от 2 000 € до 7 000 €</h1>
+          <p class="hero-text" data-i18n="heroSubtitle">
+  Небольшой, аккуратный каталог автомобилей с понятными фильтрами,
+  честными ценами и удобным просмотром на телефоне и компьютере.
+</p>
+
+          <div class="hero-actions">
+            <a href="#catalog" class="btn btn-primary" data-i18n="watchCatalog">
+  Смотреть каталог
+</a>
+          
+            <a href="#" class="btn btn-secondary open-request-modal" data-i18n="requestBtn">Оставить заявку</a>
+          </div>
+        </div>
+      </section>
+
+     <section class="filters">
+  <div class="filters-scroll">
+    <button class="filter-chip active" data-filter="all" data-i18n="filterAll">Все авто</button>
+<button class="filter-chip" data-filter="available" data-i18n="filterAvailable">В наличии</button>
+<button class="filter-chip" data-filter="tuv" data-i18n="filterTuv">TÜV</button>
+<button class="filter-chip" data-filter="automatic" data-i18n="filterAutomatic">Автомат</button>
+<button class="filter-chip" data-filter="gasoline" data-i18n="filterGasoline">Бензин</button>
+<button class="filter-chip" data-filter="diesel" data-i18n="filterDiesel">Дизель</button>
+  </div>
+</section>
+      
+      <section id="catalog" class="catalog">
+        <div class="section-top">
+          <div>
+            <p class="section-subtitle" data-i18n="catalog">Каталог</p>
+            <h2 id="catalogCount">Найдено 0 автомобилей</h2>
+          </div>
+
+          
+          <div class="sort-box">
+  <label for="sortTrigger" data-i18n="sortLabel">Сортировка</label>
+
+ <div class="custom-sort" id="customSort">
+  <button type="button" class="custom-sort-trigger" id="sortTrigger">
+    <span id="sortLabel" data-i18n="sortDefault">По умолчанию</span>
+    <span class="custom-sort-arrow"></span>
+  </button>
+
+  <div class="custom-sort-menu" id="sortMenu">
+    <button type="button" class="custom-sort-option active" data-value="default" data-i18n="sortDefault">
+      По умолчанию
+    </button>
+
+    <button type="button" class="custom-sort-option" data-value="cheap" data-i18n="sortCheap">
+      Сначала дешевле
+    </button>
+
+    <button type="button" class="custom-sort-option" data-value="expensive" data-i18n="sortExpensive">
+      Сначала дороже
+    </button>
+
+    <button type="button" class="custom-sort-option" data-value="new" data-i18n="sortNew">
+      Новее год
+    </button>
+  </div>
+</div>
+</div>
+
+
+
+
+        </div>
+
+        <div class="cars-grid" id="carsGrid"></div>
+  
+
+
+        <div class="load-more-wrap">
+  <button id="loadMoreBtn" class="load-more-btn" data-i18n="loadMore">
+  Показать ещё
+</button>
+</div>
+
+      </section>
+
+      
+
+    </main>
+
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo">AUTOS</a>
+      <p data-i18n="footerText">
+        Проверенные автомобили в Германии.
+      </p>
+    </div>
+
+    <div class="footer-links">
+      <a href="index.html#catalog" data-i18n="catalog">Каталог</a>
+      <a href="#" data-i18n="services">Услуги</a>
+      <a href="#" data-i18n="about">О нас</a>
+      <a href="#" data-i18n="contacts">Контакты</a>
+    </div>
+
+    <div class="footer-contact">
+      <a href="tel:+491234567890">+49 123 456 78 90</a>
+      <a href="#">Telegram</a>
+      <a href="#">WhatsApp</a>
+      <a href="mailto:info@autos.de">info@autos.de</a>
+    </div>
+
+    <div class="footer-action">
+      <a href="#" class="footer-btn" data-i18n="requestBtn">
+        Оставить заявку
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p data-i18n="rights">© 2026 AUTOS. Все права защищены.</p>
+  </div>
+</footer>
+
+
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="menu-overlay" id="menuOverlay">
+  <div class="menu-panel">
+    <div class="menu-top">
+      <button class="menu-close" id="menuClose">✕</button>
+      <div class="menu-brand">AUTOS</div>
+    </div>
+
+    <div class="menu-content">
+  <nav class="menu-nav">
+  <a href="index.html#top" data-i18n="main">Главная</a>
+  <a href="index.html#catalog" data-i18n="catalog">Каталог</a>
+
+  <span class="menu-divider"></span>
+
+  <a href="#" data-i18n="services">Услуги</a>
+  <a href="#" data-i18n="about">О нас</a>
+</nav>
+
+  <div class="menu-bottom">
+    <div class="menu-socials">
+      <a href="#">Telegram</a>
+      <a href="#">WhatsApp</a>
+      <a href="#">Instagram</a>
+    </div>
+
+    <a href="tel:+491234567890" class="menu-phone">
+      +49 123 456 78 90
+    </a>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+<div class="modal-overlay" id="requestModal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Закрыть">✕</button>
+
+   <p class="modal-label" data-i18n="requestLabel">Заявка</p>
+
+<h2 data-i18n="requestModalTitle">
+  Оставить заявку
+</h2>
+
+<p class="modal-text" data-i18n="requestModalText">
+  Оставьте контакты, и мы свяжемся с вами, ответим на вопросы
+  и поможем подобрать автомобиль.
+</p>
+
+<form class="request-form" id="requestForm">
+  <input
+    type="text"
+    id="clientName"
+    placeholder="Ваше имя"
+    data-i18n-placeholder="namePlaceholder"
+    required
+  />
+
+  <input
+    type="tel"
+    id="clientPhone"
+    placeholder="Телефон"
+    data-i18n-placeholder="phonePlaceholder"
+    required
+  />
+
+  <input
+  type="text"
+  id="clientCar"
+  placeholder="Какой автомобиль интересует"
+  data-i18n-placeholder="clientCarPlaceholder"
+/>
+
+  <button
+    type="submit"
+    class="request-submit"
+    data-i18n="sendBtn"
+  >
+    Отправить заявку
+  </button>
+</form>
+
+  </div>
+</div>
+
+
+
+
+
+<script src="lang/ru.js"></script>
+<script src="lang/de.js"></script>
+<script src="lang/en.js"></script>
+<script src="lang/tr.js"></script>
+
+
+<script src="cars.js"></script>
+<script src="script.js"></script>
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+</html>

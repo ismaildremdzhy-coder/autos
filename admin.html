@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Управление автомобилями</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="light-theme">
+  <div class="admin-login" id="adminLogin">
+    <div class="admin-login-box">
+      <h2 data-i18n="adminLoginTitle">Вход</h2>
+      <p data-i18n="adminLoginText">Введите пароль для доступа к управлению автомобилями</p>
+
+      <input
+        type="password"
+        id="adminPassword"
+        placeholder="Пароль"
+        data-i18n-placeholder="adminPasswordPlaceholder"
+      />
+
+      <button id="adminLoginBtn" class="btn btn-primary" data-i18n="adminLoginBtn">
+        Войти
+      </button>
+
+      <p id="adminLoginError" class="admin-login-error"></p>
+    </div>
+  </div>
+
+  <div class="site-shell" id="adminContent" style="display:none;">
+    <header class="header">
+      <div class="header-left">
+        <a href="index.html" class="logo">AUTOS ADMIN</a>
+      </div>
+
+      <div class="header-right">
+  <div class="lang-dropdown" id="langDropdown">
+    <button class="lang-btn" id="langTrigger" type="button">
+      <span id="langCurrent">DE</span>
+      <span class="lang-arrow"></span>
+    </button>
+
+    <div class="lang-menu">
+      <button class="lang-option active" data-lang="DE">DE</button>
+      <button class="lang-option" data-lang="EN">EN</button>
+      <button class="lang-option" data-lang="TR">TR</button>
+      <button class="lang-option" data-lang="RU">RU</button>
+    </div>
+  </div>
+
+  <a href="index.html" class="btn btn-secondary" data-i18n="adminToSite">
+    На сайт
+  </a>
+</div>
+    </header>
+
+    <main class="main">
+      <section class="admin-section admin-page">
+        <div class="section-top">
+          <div>
+            <p class="section-subtitle" data-i18n="adminSectionSubtitle">Управление</p>
+            <h2 data-i18n="adminAddCarTitle">Добавить автомобиль</h2>
+          </div>
+        </div>
+
+        <div class="add-car-wrap active">
+          <form id="addCarForm" class="add-car-form">
+            <div class="form-grid">
+              <input
+                type="text"
+                id="newBrand"
+                list="brandOptions"
+                placeholder="Марка"
+                data-i18n-placeholder="adminBrandPlaceholder"
+                required
+              />
+
+              <datalist id="brandOptions">
+                <option value="Audi"></option>
+                <option value="BMW"></option>
+                <option value="Mercedes-Benz"></option>
+                <option value="Volkswagen"></option>
+                <option value="Opel"></option>
+                <option value="Ford"></option>
+                <option value="Skoda"></option>
+                <option value="Seat"></option>
+                <option value="Renault"></option>
+                <option value="Peugeot"></option>
+                <option value="Citroen"></option>
+                <option value="Toyota"></option>
+                <option value="Honda"></option>
+                <option value="Hyundai"></option>
+                <option value="Kia"></option>
+                <option value="Mazda"></option>
+                <option value="Nissan"></option>
+                <option value="Volvo"></option>
+                <option value="Fiat"></option>
+                <option value="Mini"></option>
+              </datalist>
+
+              <input
+                type="text"
+                id="newModel"
+                placeholder="Модель"
+                data-i18n-placeholder="adminModelPlaceholder"
+                required
+              />
+
+              <select id="newYear" required>
+                <option value="" data-i18n="adminYearPlaceholder">Год</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
+                <option value="2016">2016</option>
+                <option value="2015">2015</option>
+                <option value="2014">2014</option>
+                <option value="2013">2013</option>
+                <option value="2012">2012</option>
+                <option value="2011">2011</option>
+                <option value="2010">2010</option>
+                <option value="2009">2009</option>
+                <option value="2008">2008</option>
+                <option value="2007">2007</option>
+                <option value="2006">2006</option>
+                <option value="2005">2005</option>
+                <option value="2004">2004</option>
+                <option value="2003">2003</option>
+                <option value="2002">2002</option>
+                <option value="2001">2001</option>
+                <option value="2000">2000</option>
+              </select>
+
+              <input
+                type="number"
+                id="newMileage"
+                placeholder="Пробег"
+                data-i18n-placeholder="adminMileagePlaceholder"
+                required
+              />
+
+              <select id="newTransmission" required>
+                <option value="" data-i18n="adminTransmissionPlaceholder">Коробка передач</option>
+                <option value="Автомат" data-i18n="automaticValue">Автомат</option>
+                <option value="Механика" data-i18n="manualValue">Механика</option>
+              </select>
+
+              <select id="newFuel" required>
+                <option value="" data-i18n="adminFuelPlaceholder">Топливо</option>
+                <option value="Бензин" data-i18n="petrolValue">Бензин</option>
+                <option value="Дизель" data-i18n="dieselValue">Дизель</option>
+                <option value="Гибрид" data-i18n="hybridValue">Гибрид</option>
+              </select>
+
+              <input
+                type="text"
+                id="newEngine"
+                placeholder="Например: 2.0 TDI или 1.6 Benzin"
+                data-i18n-placeholder="adminEnginePlaceholder"
+              />
+
+              <input
+                type="text"
+                id="newPower"
+                placeholder="Мощность"
+                data-i18n-placeholder="adminPowerPlaceholder"
+              />
+
+              <select id="newDrive">
+                <option value="" data-i18n="adminDrivePlaceholder">Привод</option>
+                <option value="Передний" data-i18n="frontDriveValue">Передний</option>
+                <option value="Задний" data-i18n="rearDriveValue">Задний</option>
+                <option value="Полный" data-i18n="allWheelDriveValue">Полный</option>
+              </select>
+
+              <select id="newColor">
+                <option value="" data-i18n="adminColorPlaceholder">Цвет</option>
+                <option value="Черный" data-i18n="blackColor">Черный</option>
+                <option value="Белый" data-i18n="whiteColor">Белый</option>
+                <option value="Серый" data-i18n="grayColor">Серый</option>
+                <option value="Серебристый" data-i18n="silverColor">Серебристый</option>
+                <option value="Синий" data-i18n="blueColor">Синий</option>
+                <option value="Темно-синий" data-i18n="darkBlueColor">Темно-синий</option>
+                <option value="Красный" data-i18n="redColor">Красный</option>
+                <option value="Бордовый" data-i18n="burgundyColor">Бордовый</option>
+                <option value="Зеленый" data-i18n="greenColor">Зеленый</option>
+                <option value="Темно-зеленый" data-i18n="darkGreenColor">Темно-зеленый</option>
+                <option value="Коричневый" data-i18n="brownColor">Коричневый</option>
+                <option value="Бежевый" data-i18n="beigeColor">Бежевый</option>
+              </select>
+
+              <input
+                type="number"
+                id="newPrice"
+                placeholder="Цена €"
+                data-i18n-placeholder="adminPricePlaceholder"
+                required
+              />
+
+              <select id="newStatus" required>
+                <option value="В наличии" selected data-i18n="availableStatus">В наличии</option>
+                <option value="Недоступно" data-i18n="unavailableStatus">Недоступно</option>
+              </select>
+
+
+              <div class="tag-presets">
+  <button type="button" data-tag="Для семьи" data-i18n="tagFamily">Для семьи</button>
+  <button type="button" data-tag="TÜV" data-i18n="tagTuv">TÜV</button>
+  <button type="button" data-tag="TÜV до 2027" data-i18n="tagTuv2027">TÜV до 2027</button>
+  <button type="button" data-tag="1 владелец" data-i18n="tagOneOwner">1 владелец</button>
+  <button type="button" data-tag="Сервисная история" data-i18n="tagServiceHistory">Сервисная история</button>
+  <button type="button" data-tag="Ухоженный салон" data-i18n="tagCleanInterior">Ухоженный салон</button>
+  <button type="button" data-tag="Хорошая комплектация" data-i18n="tagGoodEquipment">Хорошая комплектация</button>
+  <button type="button" data-tag="Экономичный" data-i18n="tagEconomical">Экономичный</button>
+  <button type="button" data-tag="Надёжный" data-i18n="tagReliable">Надёжный</button>
+  <button type="button" data-tag="Комплект резины" data-i18n="tagTiresSet">Комплект резины</button>
+</div>
+
+
+
+
+              <input
+                type="text"
+                id="newTags"
+                placeholder="Теги через запятую"
+                data-i18n-placeholder="adminTagsPlaceholder"
+              />
+            </div>
+
+            <textarea
+              id="newDescription"
+              data-i18n-placeholder="descriptionTemplate"
+              rows="5"
+            ></textarea>
+
+            <div class="image-upload-block">
+              <label class="upload-label">
+                <input type="file" id="newImages" accept="image/*" multiple />
+                <span data-i18n="adminChoosePhotos">Выбрать фотографии</span>
+              </label>
+
+              <div id="imagePreview" class="image-preview"></div>
+
+              <div class="add-car-actions">
+                <button type="submit" class="btn btn-primary" data-i18n="adminSaveBtn">
+                  Сохранить
+                </button>
+
+                <button type="button" id="clearImagesBtn" class="btn btn-secondary" data-i18n="adminClearPhotosBtn">
+                  Очистить фото
+                </button>
+
+                <button type="button" id="clearFormBtn" class="btn btn-secondary" data-i18n="adminClearFormBtn">
+                  Очистить форму
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <div class="custom-cars-panel">
+            <h3 data-i18n="adminAddedCarsTitle">Добавленные автомобили</h3>
+
+            <div style="display:flex; gap:10px; margin-bottom:16px; flex-wrap:wrap;">
+              <button id="exportCarsBtn" class="btn btn-secondary" data-i18n="adminExportBtn">
+                Скачать машины
+              </button>
+
+              <label class="btn btn-secondary" style="cursor:pointer;">
+                <span data-i18n="adminImportBtn">Загрузить машины</span>
+                <input type="file" id="importCarsInput" accept=".json" hidden />
+              </label>
+            </div>
+
+            <div id="customCarsList" class="custom-cars-list"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="lang/ru.js"></script>
+  <script src="lang/de.js"></script>
+  <script src="lang/en.js"></script>
+  <script src="lang/tr.js"></script>
+
+  <script src="cars.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
